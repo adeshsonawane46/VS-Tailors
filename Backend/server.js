@@ -46,8 +46,9 @@ const appointmentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
-const Appointment = mongoose.model("Appointment", appointmentSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+const Appointment = mongoose.models.Appointment || mongoose.model("Appointment", appointmentSchema);
+
 
 // ================= Nodemailer Transporter (BREVO – FIXED) =================
 let transporter = null;
@@ -66,15 +67,15 @@ if (
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 10000,
   });
 
-  transporter.verify((err) => {
-    if (err) console.error("❌ Email transporter error:", err);
-    else console.log("✅ Email service configured (Brevo SMTP)");
-  });
-} else {
+  console.log("✅ Email transporter created (Brevo SMTP)");
+  } else {
   console.warn("⚠️ Email disabled (SMTP credentials missing)");
-}
+  }
 
 // ================= Auth Routes =================
 app.post("/api/auth/register", async (req, res) => {
@@ -144,14 +145,21 @@ app.post("/api/appointments", async (req, res) => {
     });
 
     await appointment.save();
-    res.json({ success: true, message: "Appointment booked successfully!" });
 
+    // Client ko turant response do
+    res.json({
+    success: true,
+    message: "Appointment booked successfully!",
+    });
+
+    // Email ko background mein bhejo (non-blocking)
     if (transporter) {
-      transporter.sendMail({
-        from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
-        to: email,
-        subject: "🎉 Your Appointment is Confirmed with VS Tailors!",
-        html: `
+    transporter
+    .sendMail({
+      from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
+      to: email,
+      subject: "🎉 Appointment Confirmed - VS Tailors",
+      html: `
 <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
   <div style="text-align: center; margin-bottom: 20px;">
     <img src="https://raw.githubusercontent.com/adeshsonawane46/VS-Tailors/main/frontend/Images/VS%20Brand%20logo%20new.png" alt="VS Tailors" width="150" style="display:block; margin:auto;">
@@ -194,11 +202,17 @@ app.post("/api/appointments", async (req, res) => {
   </p>
 </div>
         `,
+      })
+      .catch((err) => {
+        console.error("❌ Email send failed:", err.message);
       });
     }
   } catch (err) {
-    console.error("❌ Appointment error:", err);
-    res.status(500).json({ success: false, message: "Server error" });
+    console.error("❌ Appointment save failed:", err);
+    res.status(500).json({
+      success: false,
+      message: "Failed to book appointment",
+    });
   }
 });
 
