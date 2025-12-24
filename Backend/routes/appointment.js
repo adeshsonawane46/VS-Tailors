@@ -6,12 +6,17 @@ const Appointment = require("../models/Appointment");
 
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.ADMIN_EMAIL,
-        pass: process.env.ADMIN_PASSWORD,
-      },
-    });
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // IMPORTANT for 587
+  auth: {
+    user: process.env.ADMIN_EMAIL,
+    pass: process.env.ADMIN_PASSWORD, // Gmail App Password
+  },
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000,
+});
+
 
 router.post("/", async (req, res) => {
   try {
