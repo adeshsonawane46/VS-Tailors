@@ -128,93 +128,9 @@ app.post("/api/auth/login", async (req, res) => {
   }
 });
 
-// ================= Appointment Route (HTML SAME) =================
-app.post("/api/appointments", async (req, res) => {
-  const { name, email, contact, service, customService, quantity, notes } =
-    req.body;
+const appointmentRoutes = require("./routes/appointment");
+app.use("/api/appointments", appointmentRoutes);
 
-  try {
-    const appointment = new Appointment({
-      name,
-      email,
-      contact,
-      service,
-      customService,
-      quantity,
-      notes,
-    });
-
-    await appointment.save();
-
-    // Client ko turant response do
-    res.json({
-    success: true,
-    message: "Appointment booked successfully!",
-    });
-
-    // Email ko background mein bhejo (non-blocking)
-    if (transporter) {
-    transporter
-    .sendMail({
-      from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
-      to: email,
-      subject: "🎉 Appointment Confirmed - VS Tailors",
-      html: `
-<div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
-  <div style="text-align: center; margin-bottom: 20px;">
-    <img src="https://raw.githubusercontent.com/adeshsonawane46/VS-Tailors/main/frontend/Images/VS%20Brand%20logo%20new.png" alt="VS Tailors" width="150" style="display:block; margin:auto;">
-  </div>
-  <h2 style="color: #d35400;">Hello ${name},</h2>
-  <p>Thank you for booking an appointment with <strong>VS Tailors</strong>!</p>
-  <p>Here are your appointment details:</p>
-  <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Service</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">${service}${
-            customService ? ` - ${customService}` : ""
-          }</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Quantity</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">${quantity}</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Contact</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">${contact}</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Notes</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">${
-            notes || "None"
-          }</td>
-    </tr>
-  </table>
-  <p style="margin-top: 20px;">Our team will contact you shortly to confirm the details.</p>
-  <p>Visit our shop or contact us anytime:
-    <a href="mailto:vsuniformmanufacturer@gmail.com">vsuniformmanufacturer@gmail.com</a>
-  </p>
-  <p style="margin-top: 20px;">Thank you for choosing <strong>VS Tailors</strong>!<br>
-    <span style="color: #d35400;">Perfect Fit for Every Occasion!</span>
-  </p>
-  <hr>
-  <p style="font-size: 0.9rem; color: #888;">
-    VS Tailors | Nashik, Maharashtra, India | +91 9822771573
-  </p>
-</div>
-        `,
-      })
-      .catch((err) => {
-        console.error("❌ Email send failed:", err.message);
-      });
-    }
-  } catch (err) {
-    console.error("❌ Appointment save failed:", err);
-    res.status(500).json({
-      success: false,
-      message: "Failed to book appointment",
-    });
-  }
-});
 
 // ================= Start Server =================
 app.listen(port, () => {
