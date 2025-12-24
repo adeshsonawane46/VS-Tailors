@@ -7,13 +7,13 @@ const nodemailer = require("nodemailer");
 
 /*
   ===============================
-  Email Transporter (Render-safe)
+  Email Transporter (Brevo SMTP)
   ===============================
 */
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
-  secure: false, // Brevo uses TLS on 587
+  secure: false,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -22,7 +22,6 @@ const transporter = nodemailer.createTransport({
   greetingTimeout: 10000,
   socketTimeout: 10000,
 });
-
 
 /*
   ===============================
@@ -56,8 +55,8 @@ router.post("/", async (req, res) => {
 
     // Email to Admin
     await transporter.sendMail({
-      from: process.env.ADMIN_EMAIL,
-      to: process.env.ADMIN_EMAIL,
+      from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
+      to: process.env.SENDER_EMAIL,
       subject: "New Appointment Booked",
       text: `New appointment from ${name}
 Email: ${email}
@@ -70,7 +69,7 @@ Notes: ${notes || "None"}`,
 
     // Confirmation Email to User
     await transporter.sendMail({
-      from: process.env.ADMIN_EMAIL,
+      from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
       to: email,
       subject: "Appointment Confirmation - VS Tailors",
       text: `Dear ${name},

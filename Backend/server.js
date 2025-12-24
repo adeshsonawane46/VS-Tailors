@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// ================= MongoDB Connection (SAFE) =================
+// ================= MongoDB Connection =================
 if (!process.env.MONGO_URI) {
   console.error("❌ MONGO_URI missing in .env");
 } else {
@@ -49,29 +49,34 @@ const appointmentSchema = new mongoose.Schema(
 const User = mongoose.model("User", userSchema);
 const Appointment = mongoose.model("Appointment", appointmentSchema);
 
-// ================= Nodemailer Transporter (SAFE) =================
+// ================= Nodemailer Transporter (BREVO – FIXED) =================
 let transporter = null;
 
-if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
+if (
+  process.env.SMTP_HOST &&
+  process.env.SMTP_PORT &&
+  process.env.SMTP_USER &&
+  process.env.SMTP_PASS
+) {
   transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT),
+    secure: false,
     auth: {
-      user: process.env.ADMIN_EMAIL,
-      pass: process.env.ADMIN_PASSWORD,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
   });
 
   transporter.verify((err) => {
     if (err) console.error("❌ Email transporter error:", err);
-    else console.log("✅ Email transporter ready");
+    else console.log("✅ Email service configured (Brevo SMTP)");
   });
 } else {
-  console.warn("⚠️ Email disabled (ADMIN_EMAIL / ADMIN_PASSWORD missing)");
+  console.warn("⚠️ Email disabled (SMTP credentials missing)");
 }
 
 // ================= Auth Routes =================
-
-// Register
 app.post("/api/auth/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -93,7 +98,6 @@ app.post("/api/auth/register", async (req, res) => {
   }
 });
 
-// Login
 app.post("/api/auth/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -112,7 +116,7 @@ app.post("/api/auth/login", async (req, res) => {
 
     const token = jwt.sign(
       { userId: user._id, email: user.email },
-      process.env.JWT_SECRET || "secret",
+      process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
 
@@ -123,7 +127,7 @@ app.post("/api/auth/login", async (req, res) => {
   }
 });
 
-// ================= Appointment Route (LOGIN NOT REQUIRED) =================
+// ================= Appointment Route (HTML SAME) =================
 app.post("/api/appointments", async (req, res) => {
   const { name, email, contact, service, customService, quantity, notes } =
     req.body;
@@ -140,38 +144,17 @@ app.post("/api/appointments", async (req, res) => {
     });
 
     await appointment.save();
-
-    // Immediate response
     res.json({ success: true, message: "Appointment booked successfully!" });
 
-    // ================= Emails (ASYNC, HTML SAME) =================
     if (transporter) {
-      // Admin Email
-      transporter
-        .sendMail({
-          from: process.env.ADMIN_EMAIL,
-          to: process.env.ADMIN_EMAIL,
-          subject: "New Appointment Booked",
-          text: `Name: ${name}
-Email: ${email}
-Contact: ${contact}
-Service: ${service}
-Custom Service: ${customService || "N/A"}
-Quantity: ${quantity}
-Notes: ${notes || "None"}`,
-        })
-        .catch((err) => console.error("❌ Admin email failed:", err));
-
-      // User Email (HTML UNCHANGED)
-      transporter
-        .sendMail({
-          from: process.env.ADMIN_EMAIL,
-          to: email,
-          subject: "🎉 Your Appointment is Confirmed with VS Tailors!",
-          html: `
+      transporter.sendMail({
+        from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
+        to: email,
+        subject: "🎉 Your Appointment is Confirmed with VS Tailors!",
+        html: `
 <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
   <div style="text-align: center; margin-bottom: 20px;">
-    <img src="Images/VS Brand logo new.png" alt="VS Tailors" width="150" style="display:block; margin:auto;">
+    <img src="https://raw.githubusercontent.com/adeshsonawane46/VS-Tailors/main/frontend/Images/VS%20Brand%20logo%20new.png" alt="VS Tailors" width="150" style="display:block; margin:auto;">
   </div>
   <h2 style="color: #d35400;">Hello ${name},</h2>
   <p>Thank you for booking an appointment with <strong>VS Tailors</strong>!</p>
@@ -210,9 +193,8 @@ Notes: ${notes || "None"}`,
     VS Tailors | Nashik, Maharashtra, India | +91 9822771573
   </p>
 </div>
-          `,
-        })
-        .catch((err) => console.error("❌ User email failed:", err));
+        `,
+      });
     }
   } catch (err) {
     console.error("❌ Appointment error:", err);
