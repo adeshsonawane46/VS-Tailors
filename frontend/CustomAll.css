@@ -1,0 +1,819 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Product Page Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #222
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #222
+}
+
+h4 {
+    font-size: 20px;
+    color: #222
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+body {
+    width: 100%;
+}
+
+#header img {
+    transform: scale(1.8);
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: #c5ffbc;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover, 
+#navbar li a.active{
+    color: rgb(255, 0, 0);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: red;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+/* Sidebar Styling (Light Theme) */
+#sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -260px; /* hidden by default */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+    transition: left 0.4s ease;
+    padding-top: 80px;
+    z-index: 1000;
+    border-radius: 0 20px 20px 0;
+}
+
+/* Sidebar Links */
+#sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin: 10px 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+#sidebar a:hover {
+    background: linear-gradient(135deg, #f9e5e5, #ffeaea);
+    color: #e63946;
+    transform: translateX(5px);
+}
+
+/* Close Button */
+#sidebar .closebtn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* Hamburger (Light Theme) */
+#hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+#hamburger:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #navbar {
+        display: none; /* Hide top navbar on mobile */
+    }
+    #hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+}
+
+
+/* Loader full screen overlay */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff; /* or light gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Spinner circle */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #4CAF50; /* your theme color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+
+.featured-products {
+    padding: 40px 10%;
+    background: #e0e0e0;
+    text-align: center;
+}
+
+.section-title {
+   
+    padding: 15px;
+    display: inline-block;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #d32f2f;
+    margin: 0;
+}
+
+.section-title h2 span {
+    color: #000;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+}
+
+.product-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-box h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    margin-bottom: 1px;
+}
+
+.product-box:hover {
+    transform: scale(1.05);
+}
+
+.product-box img {
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+}
+
+.product-box .stars {
+    font-size: 25px;
+    color: #FFD700;
+    margin: 10px 0;
+    margin-top: 1px;
+}
+
+/* Get Tailored Button */
+.get-tailored {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #d32f2f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.get-tailored:hover {
+    background: #a81919;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: #333;
+}
+
+.section-title h2 span {
+    color: #d32f2f;
+}
+
+/* 🌟 Custom Design Section */
+.custom-design-section {
+  background: linear-gradient(to right, #fff5f5, #ffe5e5);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-wrapper {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.custom-wrapper h2 {
+  font-size: 38px;
+  color: #d32f2f;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.custom-wrapper h2 span {
+  color: #000;
+  background: linear-gradient(to right, #d32f2f, #ff6f61);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-wrapper p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 35px;
+}
+
+/* Gradient Button */
+.appointment-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #d32f2f, #ff6f61);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(211, 47, 47, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(211, 47, 47, 0.35);
+}
+
+/* Optional: Floating gradient circle background */
+.custom-design-section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(211, 47, 47, 0.1), transparent);
+  top: -50px;
+  left: -50px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.custom-design-section::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 111, 97, 0.1), transparent);
+  bottom: -50px;
+  right: -50px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Signup Newletter Section */
+
+.newsletter {
+    width: 100%;
+    background: #f5f8ff; /* Light Blue Shade */
+    color: #333;
+    text-align: center;
+    padding: 70px 5%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Newsletter Content */
+.newsletter-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Heading */
+.newsletter-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+
+/* Description */
+.newsletter-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Form */
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Input Field */
+.newsletter input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    width: 60%;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Subscribe Button */
+.newsletter button {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.newsletter button:hover {
+    background: #004494;
+}
+
+/* WhatsApp Link */
+.whatsapp-link {
+    margin-top: 25px;
+}
+
+.whatsapp-link a {
+    display: inline-flex;
+    align-items: center;
+    background: #25D366;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.whatsapp-link img {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.whatsapp-link a:hover {
+    background: #1EBF5F;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .newsletter-container h2 {
+        font-size: 28px;
+    }
+
+    .newsletter-container p {
+        font-size: 16px;
+    }
+
+    .newsletter form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .whatsapp-link a {
+        font-size: 14px;
+        padding: 12px 18px;
+    }
+}
+
+
+
+/* Footer Section */
+.custom-footer {
+    background: #151515;
+    color: white;
+    padding: 60px 8%;
+    text-align: center;
+}
+
+/* Footer Grid Layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: left;
+}
+
+/* Footer Titles */
+.footer-container h3, .footer-brand h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ff2e63;
+}
+
+/* Footer Text */
+.footer-container p, .footer-container ul {
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* Links Styling */
+.footer-links ul, .footer-hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-hours ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #ff2e63;
+}
+
+/* Payment Icons */
+.payment-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.payment-icons img {
+    width: 240px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.payment-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Social Media */
+.footer-social {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff2e63;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+    }
+}
+
+
+/* ===================================== */
+/* ========= Media Queries ============= */
+/* ===================================== */
+
+/* Tablet & Smaller Devices (max-width: 1024px) */
+@media (max-width: 1024px) {
+    /* Header */
+    #header {
+        padding: 20px 40px;
+    }
+    #header .logo {
+        transform: scale(1.5);
+    }
+    #navbar li {
+        padding: 0 15px;
+    }
+    #navbar li a {
+        font-size: 15px;
+    }
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+        left: 15px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two products per row */
+        gap: 20px;
+    }
+    .product-box img {
+        height: 250px;
+    }
+    .product-box h3 {
+        font-size: 22px;
+    }
+
+    /* Custom Design Section */
+    .custom-design-section {
+        padding: 60px 20px;
+    }
+    .custom-wrapper h2 {
+        font-size: 30px;
+    }
+    .custom-wrapper p {
+        font-size: 16px;
+    }
+    .appointment-btn {
+        padding: 12px 28px;
+        font-size: 16px;
+    }
+
+    /* Newsletter & Footer */
+    .newsletter-container h2 {
+        font-size: 28px;
+    }
+    .newsletter-container p {
+        font-size: 16px;
+    }
+    .newsletter form {
+        flex-direction: column;
+        align-items: center;
+    }
+    .newsletter input {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+    .newsletter button {
+        width: 100%;
+        max-width: 300px;
+    }
+    .custom-footer {
+        padding: 40px 5%;
+    }
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+        gap: 20px;
+    }
+    .footer-payment, .payment-icons {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Mobile Devices (max-width: 767px) */
+@media (max-width: 767px) {
+    /* Header */
+    #header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        position: sticky;
+        top: 0;
+        background: #fff;
+    }
+
+    #header .logo {
+        width: 200px;
+        margin-top: 5px;
+        transform: scale(1); 
+    }
+    
+    #navbar {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 0;
+    }
+    #navbar li {
+        padding: 0 5px;
+    }
+    #navbar li a {
+        font-size: 13px;
+    }
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+        left: 5px;
+        width: 80%;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on mobile phones */
+        gap: 15px;
+    }
+    .product-box {
+        padding: 15px;
+    }
+    .product-box img {
+        height: auto;
+    }
+    .product-box h3 {
+        font-size: 20px;
+    }
+    .get-tailored {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    /* Custom Design Section */
+    .custom-design-section {
+        padding: 40px 10px;
+    }
+    .custom-wrapper h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+    .custom-wrapper p {
+        font-size: 14px;
+    }
+    .appointment-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Newsletter & Footer */
+    .newsletter-container h2 {
+        font-size: 24px;
+    }
+    .newsletter-container p {
+        font-size: 14px;
+    }
+    .newsletter form {
+        flex-direction: column;
+    }
+    .newsletter input, .newsletter button {
+        width: 100%;
+        max-width: 100%;
+    }
+    .custom-footer {
+        padding: 40px 10px;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .footer-brand, .footer-links, .footer-hours, .footer-payment {
+        text-align: center;
+    }
+    .footer-links ul {
+        padding-left: 0;
+    }
+    .payment-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Tailors</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="BulkOrder.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- header -->
+
+<section id="header">
+    <a href="#"><img src="Images/VS Tailor Website Logo Fix.png" width="160" class="logo" alt=""></a>
+    
+    <div>
+        <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="Products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="login-btn"><a href="Login.html">Login</a></li>
+
+            <!-- Profile Dropdown -->
+            <li id="profile-btn" style="display: none; position: relative;">
+                <a href="javascript:void(0);">
+                    <img src="Images/Profile-icon.png" alt="Profile" width="23" style="border-radius:50%;">
+                </a>
+                <ul id="profile-dropdown" style="display:none; position: absolute; top: 40px; right: 0; background: #fff; list-style:none; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <li><a href="javascript:void(0);" onclick="logoutUser()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <span id="hamburger">&#9776;</span>
+</section>
+
+    <!-- Sidebar for mobile -->
+    <div id="sidebar">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="Products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="Login.html">Login</a>
+    </div>
+
+    <!-- Loader-->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+
+<section class="featured-products">
+    <div class="section-title">
+        <h2>Bulk Stitching <span>Orders</span></h2>
+    </div>
+
+    <div class="bulk-grid">
+        <!-- Product 16 -->
+        <div class="productwide-box">
+            <img src="Images/School Uniforms1.png" alt="School Uniforms">
+            <h3>School Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=16" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 17 -->
+        <div class="productwide-box">
+            <img src="Images/College Uniforms.png" alt="College Uniforms">
+            <h3>College Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=17" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 18 -->
+        <div class="productwide-box">
+            <img src="Images/Hospital Uniforms.png" alt="Hospital Uniforms">
+            <h3>Hospital Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=18" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 19 -->
+        <div class="productwide-box">
+            <img src="Images/Corporate Uniforms bulk.png" alt="Corporate Uniforms">
+            <h3>Corporate Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=19" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 20 -->
+        <div class="productwide-box">
+            <img src="Images/Garage Uniforms.png" alt="Garage Uniforms">
+            <h3>Garage Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=20" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 21 -->
+        <div class="productwide-box">
+            <img src="Images/Petrol pump Uniforms.png" alt="Petrol Pump Uniforms">
+            <h3>Petrol Pump Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=21" class="get-tailored">Get Tailored</a>
+        </div>
+        
+        <!-- Product 22 -->
+        <div class="productwide-box">
+            <img src="Images/Hotel Uniforms.png" alt="Hotel Uniforms">
+            <h3>Hotel Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=22" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 23 -->
+        <div class="productwide-box">
+            <img src="Images/Bouncers Uniform.png" alt="Bouncer Uniforms">
+            <h3>Bouncer Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=23" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 24 -->
+        <div class="productwide-box">
+            <img src="Images/Security Uniforms.png" alt="Security Uniforms">
+            <h3>Security Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=24" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 25 -->
+        <div class="productwide-box">
+            <img src="Images/Airlines Uniforms.png" alt="Airline Staff Uniforms">
+            <h3>Airline Staff Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=25" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 26 -->
+        <div class="productwide-box">
+            <img src="Images/Saloon Uniform.png" alt="Salon Uniforms">
+            <h3>Salon Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=26" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 27 -->
+        <div class="productwide-box">
+            <img src="Images/Tshirts.png" alt="T-Shirts">
+            <h3>T-Shirts</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=27" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 28 -->
+        <div class="productwide-box">
+            <img src="Images/Police Uniforms.png" alt="Police Uniforms">
+            <h3>Police Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=28" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 29 -->
+        <div class="productwide-box">
+            <img src="Images/Dhol Tasha Uniforms.png" alt="Dhol Tasha Kurta Uniforms">
+            <h3>Dhol Tasha Kurta Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=29" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 30 -->
+        <div class="productwide-box">
+            <img src="Images/Wedding Package.png" alt="Wedding Package">
+            <h3>Wedding Package</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=30" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 31 -->
+        <div class="productwide-box">
+            <img src="Images/Family Pack.png" alt="Family Package">
+            <h3>Family Package</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=31" class="get-tailored">Get Tailored</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- 🌟 Custom Design Section -->
+<section class="custom-design-section">
+  <div class="custom-wrapper">
+    <h2>
+      We craft <span>customized designs</span><br />
+      just the way you imagine!
+    </h2>
+    <p>No product images? No problem. Share your ideas, and we'll make it real.</p>
+    <a href="contact.html#book-appointment2" class="appointment-btn">📅 Book Your Appointment</a>
+  </div>
+</section>
+
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h2>📩 Stay Updated with Us!</h2>
+        <p>Subscribe to our newsletter for the latest updates, exclusive offers, and style inspiration. Also, join our WhatsApp Channel for instant alerts!</p>
+
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <div class="whatsapp-link">
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank">
+                <img src="Images/WhatsApp Icon.png" alt="WhatsApp"> Join WhatsApp Channel
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="custom-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="footer-brand">
+            <h2>VS Tailors</h2>
+            <p>31+ Years of Excellence in Custom Tailoring & Uniform Manufacturing.</p>
+            <p>Perfect Fit for Every Occasion!</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Business Hours -->
+        <div class="footer-hours">
+            <h3>Business Hours</h3>
+            <ul>
+                <li>🕒 Mon - Sun: 9:00 AM - 9:00 PM</li>
+                <li>📍 Address: Nashik, Maharashtra, India</li>
+                <li>📞 +91 9822771573</li>
+                <li>📧 vsuniformmanufacturer@gmail.com</li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Payment Methods -->
+        <div class="footer-payment">
+            <h3>We Accept</h3>
+            <div class="payment-icons">
+                <img src="Images/payment Gateway Icons.png" alt="Payment Methods">
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="https://share.google/jWaG2gvEhZIGiskQo" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://www.instagram.com/vs_tailors_?igsh=bHduNW1yYnZ1MzQx" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 VS Tailors. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        window.addEventListener("load", function() {
+        document.getElementById("loader").style.display = "none";
+        });
+    </script>
+
+    <script src="SideBar.js"></script>
+    <script src="subscribeSuccess.js"></script>
+    <script src="ProfileIcon.js"></script>
+</body>
+</html>

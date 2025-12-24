@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Tailors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- header -->
+
+<section id="header">
+    <a href="#"><img src="Images/VS Tailor Website Logo Fix.png" width="160" class="logo" alt=""></a>
+    
+    <div>
+        <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+            <li id="login-btn"><a href="Login.html">Login</a></li>
+
+            <!-- Profile Dropdown -->
+            <li id="profile-btn" style="display: none; position: relative;">
+                <a href="javascript:void(0);">
+                    <img src="Images/Profile-icon.png" alt="Profile" width="23" style="border-radius:50%;">
+                </a>
+                <ul id="profile-dropdown" style="display:none; position: absolute; top: 40px; right: 0; background: #fff; list-style:none; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <li><a href="javascript:void(0);" onclick="logoutUser()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <span id="hamburger">&#9776;</span>
+</section>
+
+    <!-- Sidebar for mobile -->
+    <div id="sidebar">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="Products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="Login.html">Login</a>
+    </div>
+
+    <!-- Loader-->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    
+<section id="page-header" class="about-header">
+    <h2>#let's_talk</h2>
+    <p>LEAVE A MESSAGE, We love to hear from you!</p>
+    
+</section>
+    
+<section id="contact-details" class="section-p1">
+    <div class="details">
+        <span>GET IN TOUCH</span>
+        <h2>Visit Our Shop or Contact Us Today – We’re Ready to Assist You!</h2>
+        <h3>Head Office</h3>
+        <div class="contact-info">
+            <li>
+                <p><img src="Images/Location Icon.png" alt="Location" class="icon"> Pavan Nagar, Nashik, Maharashtra, India</p>
+            </li>
+            <li>
+                <p><img src="Images/GST Logo.png" alt="GST" class="icon"> 27AVNPS7632Q1ZG</p>
+            </li>
+            <li>
+                <p><img src="Images/Gmail Icon.png" alt="Gmail" class="icon"> vsuniformmanufacturer@gmail.com</p>
+            </li>
+            <li>
+                <p><img src="Images/Phone Icon.png" alt="Phone" class="icon"> +91 9822771573</p>
+            </li>
+            <li>
+                <p><img src="Images/Time Icon.png" alt="Time" class="icon"> Monday to Sunday: 9:00 AM to 9:00 PM</p>
+            </li>
+        </div>
+    </div>
+
+    <div  class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7499.642925501256!2d73.75049627487181!3d19.97400925488406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb67804deed3%3A0xbda46acd88a6b294!2sVS%20Tailors%20and%20collections!5e0!3m2!1sen!2sin!4v1766410034583!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+    
+<!-- Book Appointment Section -->
+<section class="form-section" id="book-appointment2">
+    <div class="container1">
+        <h1>📅 Book <span>Appointment</span></h1>
+        <h3>Get a free home service with our experts at VS Tailors. Fill in your details below!</h3>
+        
+        <form id="appointment-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required>
+            
+            <label for="service">Select Service:</label>
+            <select id="service" name="service" required onchange="toggleCustomService()">
+                <option value="Shirt">Shirt</option>
+                <option value="Pant">Pant</option>
+                <option value="Blazer">Blazer</option>
+                <option value="Kurta">Kurta</option>
+                <option value="Corporate-Uniforms">Corporate Uniforms</option>
+                <option value="Hotel-Uniforms">Hotel Uniforms</option>
+                <option value="Hospital-Uniforms">Hospital Uniforms</option>
+                <option value="Garage-Uniforms">Garage Uniforms</option>
+                <option value="School/College-Uniforms">School/College Uniforms</option>
+                <option value="custom">Other (Specify)</option>
+            </select>
+            <input type="text" id="custom-service" name="custom-service" placeholder="Specify service" style="display:none;">
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+            
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" name="notes" placeholder="Enter any additional details" rows="4"></textarea>
+            
+            <button id="bookAppointmentbtn" type="submit">Submit</button>
+            <!-- Loading message -->
+            <div id="loading-message" style="display:none; color: blue; font-size:1.2rem; margin-top:10px;">
+                ⏳ Submitting your appointment, please wait...
+            </div>
+
+        </form>
+        
+        <div id="success-message" class="hidden">✅ Appointment booked successfully!</div>
+    </div>
+</section>
+
+
+
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h2>📩 Stay Updated with Us!</h2>
+        <p>Subscribe to our newsletter for the latest updates, exclusive offers, and style inspiration. Also, join our WhatsApp Channel for instant alerts!</p>
+
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <div class="whatsapp-link">
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank">
+                <img src="Images/WhatsApp Icon.png" alt="WhatsApp"> Join WhatsApp Channel
+            </a>
+        </div>
+
+        <div id="success-message" style="display:none; color: green; font-size: 1.2rem; margin-top: 10px;">
+            ✅ Thank you for subscribing! You'll receive the latest updates soon.
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="custom-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="footer-brand">
+            <h2>VS Tailors</h2>
+            <p>31+ Years of Excellence in Custom Tailoring & Uniform Manufacturing.</p>
+            <p>Perfect Fit for Every Occasion!</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Business Hours -->
+        <div class="footer-hours">
+            <h3>Business Hours</h3>
+            <ul>
+                <li>🕒 Mon - Sun: 9:00 AM - 9:00 PM</li>
+                <li>📍 Address: Nashik, Maharashtra, India</li>
+                <li>📞 +91 9822771573</li>
+                <li>📧 vsuniformmanufacturer@gmail.com</li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Payment Methods -->
+        <div class="footer-payment">
+            <h3>We Accept</h3>
+            <div class="payment-icons">
+                <img src="Images/payment Gateway Icons.png" alt="Payment Methods">
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="https://share.google/jWaG2gvEhZIGiskQo" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://www.instagram.com/vs_tailors_?igsh=bHduNW1yYnZ1MzQx" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 VS Tailors. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        window.addEventListener("load", function() {
+        document.getElementById("loader").style.display = "none";
+        });
+    </script>
+
+<script>
+  // Show/hide custom service input
+  function toggleCustomService() {
+    const service = document.getElementById("service").value;
+    const customServiceInput = document.getElementById("custom-service");
+    if (service === "custom") {
+      customServiceInput.style.display = "block";
+    } else {
+      customServiceInput.style.display = "none";
+      customServiceInput.value = ""; // reset if not custom
+    }
+  }
+
+  // Ensure DOM is loaded before attaching event listener
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("appointment-form");
+    const successMessage = document.getElementById("success-message");
+    const loadingMessage = document.getElementById("loading-message"); // loading div
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      // Show loading message immediately
+      loadingMessage.style.display = "block";
+
+      const formData = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        contact: document.getElementById("contact").value.trim(),
+        service: document.getElementById("service").value,
+        customService: document.getElementById("custom-service").value.trim(),
+        quantity: Number(document.getElementById("quantity").value),
+        notes: document.getElementById("notes").value.trim(),
+      };
+
+      try {
+        const res = await fetch("http://localhost:5000/api/appointments", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+
+        setTimeout(() => {
+        loadingMessage.style.display = "none";
+
+        if (res.ok) {
+          successMessage.classList.remove("hidden");
+          successMessage.innerText = "✅ Appointment booked successfully!";
+          form.reset();
+
+          setTimeout(() => successMessage.classList.add("hidden"), 5000);
+        } else {
+          alert("❌ Error: " + (data.error || data.message || "Something went wrong"));
+        }
+      }, 800);
+
+      } catch (err) {
+        console.error("Error submitting form:", err);
+        loadingMessage.style.display = "none";
+        alert("❌ Network or server error. Check backend is running!");
+      }
+    });
+  });
+</script>
+
+<style>
+  .hidden { display: none; }
+</style>
+
+    <script src="SideBar.js"></script>
+    <script src="subscribeSuccess.js"></script>
+    <script src="appointment.js"></script>
+    <script src="ProfileIcon.js"></script>
+</body>
+</html>

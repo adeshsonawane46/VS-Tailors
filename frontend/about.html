@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Tailors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+
+</head>
+<body>
+    <!-- header -->
+
+    <section id="header">
+        <a href="#"><img src="Images/VS Tailor Website Logo Fix.png" width="160" class="logo" alt=""></a>
+        
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="login-btn"><a href="Login.html">Login</a></li>
+
+                <!-- Profile Dropdown -->
+                <li id="profile-btn" style="display: none; position: relative;">
+                    <a href="javascript:void(0);">
+                        <img src="Images/Profile-icon.png" alt="Profile" width="23" style="border-radius:50%;">
+                    </a>
+                    <ul id="profile-dropdown" style="display:none; position: absolute; top: 40px; right: 0; background: #fff; list-style:none; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                        <li><a href="javascript:void(0);" onclick="logoutUser()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <span id="hamburger">&#9776;</span>
+    </section>
+
+    <!-- Sidebar for mobile -->
+    <div id="sidebar">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="Products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="Login.html">Login</a>
+    </div> 
+
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+
+<!-- Hero Section -->
+
+<section id="about-hero">
+    <h2>About VS Tailors 👔</h2>
+    <p>Crafting Your Perfect Fit with Passion and Precision</p>
+</section>
+
+  <!-- About Us Section -->
+  <section class="about-us">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>Who <span>We Are</span></h2>
+        <p>
+            VS Tailors is a legacy built on precision, passion, and personal service. With over <strong>31+ years of experience</strong> in the tailoring industry, we are proud to have served thousands of satisfied clients across generations. 
+            <br><br>
+            From crafting perfectly stitched shirts, pants, and uniforms to offering doorstep measurement services, our mission has always been clear – to bring comfort, style, and confidence into your wardrobe. 
+            <br><br>
+            Our highly skilled team combines traditional tailoring craftsmanship with modern trends to ensure each garment we deliver speaks of quality and elegance. Whether it's daily wear, special events, school uniforms, or corporate attire – VS Tailors is your trusted name in personalized stitching.
+        </p>
+
+      <!-- <h3>Trusted By</h3>
+      <ul class="client-list">
+        <li>Fravashi International School</li>
+        <li>Fravashi Academy</li>
+        <li>Agrifert India Pvt Ltd</li>
+        <li>Patil & Shah Group</li>
+        <li>Belleza Unisex Studio Salon</li>
+        <li>Rohan Travels</li>
+        <li>Brandroot Salon & Spa Ltd</li>
+        <li>Go Green Cabs</li>
+        <li>Neocare Hospital</li>
+        <li>Sulakhe Hospital</li>
+        <li>Larive Kitchen and Cocktail</li>
+        <li>Lifecare Hospital</li>
+        <li>Guruji Hospital</li>
+        <li>Wellness Multi Speciality Hospital</li>
+        <li>Sanika Facility Services Pvt Ltd</li>
+        <li>Bright Future Education Group</li>
+        <li>Six Sigma Hospital</li>
+        <li>Vakratund Parcel Point</li>
+        <li>Shrikrishna Engineering Co</li>
+        <li>Progress Engineering</li>
+        <li>Shaurya Enterprises</li>
+        <li>Shantanu Bottling Machines</li>
+        <li>Sanjit Instruments Pvt Ltd</li>
+        <li>Tattva Supplements Pvt Ltd</li>
+        <li>Racca Sales & Services (Maruti-Suzuki)</li>
+        <li>Car Mall</li>
+        <li>Mr. Automotive</li>
+        <li>Takle Bandhu Saraf</li>
+        <li>Mark Mall Pvt Ltd</li>
+        <li>K.P. Auto Services</li>
+        <li>Excellent Group of Hotel</li>
+        <li>Om Saikrupa Car Services</li>
+        <li>Scorpion Enterprises</li>
+      </ul> -->
+
+      </div>
+      <div class="about-image">
+        <img src="Images/About us img.jpg" alt="Tailoring Craft" />
+      </div>
+    </div>
+  </section>
+
+<section class="trusted-by">
+  <h2>Trusted<span> By</span></h2>
+  <p class="trusted-subtitle">
+    Proudly serving schools, hospitals, corporates & businesses for over 31+ years.
+  </p>
+
+  <div class="client-grid">
+    <div class="client-card">Fravashi International Academy</div>
+    <div class="client-card">Fravashi Town</div>
+    <div class="client-card">Agrifert India Pvt Ltd</div>
+    <div class="client-card">Patil & Shah Group</div>
+    <div class="client-card">Belleza Unisex Studio Salon</div>
+    <div class="client-card">Rohan Travels</div>
+    <div class="client-card">Brandroot Salon & Spa Ltd</div>
+    <div class="client-card">Go Green Cabs</div>
+    <div class="client-card">Neocare Hospital</div>
+    <div class="client-card">Sulakhe Hospital</div>
+    <div class="client-card">Larive Kitchen and Cocktail</div>
+    <div class="client-card">Lifecare Hospital</div>
+    <div class="client-card">Guruji Hospital</div>
+    <div class="client-card">Bright Future Education Group</div>
+    <div class="client-card">Six Sigma Hospital</div>
+    <div class="client-card">Vakratund Parcel Point</div>
+    <div class="client-card">Shrikrishna Engineering Co</div>
+    <div class="client-card">Progress Engineering</div>
+    <div class="client-card">Shantanu Bottling Machines</div>
+    <div class="client-card">Wellness Multi Speciality Hospital</div>
+    <div class="client-card">Mark Mall Pvt Ltd</div>
+    <div class="client-card">Car Mall</div>
+    <div class="client-card">Mr. Automotive</div>
+    <div class="client-card">Takle Bandhu Saraf</div>
+    <div class="client-card">K.P. Auto Services</div>
+    <div class="client-card">Excellent Group of Hotel</div>
+    <div class="client-card">Om Saikrupa Car Services</div>
+    <div class="client-card">Scorpion Enterprises</div>
+    <div class="client-card">Racca Sales & Services<br>(Maruti-Suzuki)</div>
+    <div class="client-card">Tattva Supplements Private<br>Limited</div>
+    <div class="client-card">Sanika Facility Services<br>Private Limited</div>
+    <div class="client-card">Sanjit Instruments Private<br>Limited</div>
+  </div>
+</section>
+
+
+<!-- Mission & Vision Section -->
+<section class="mission-vision-modern">
+  <div class="container">
+    <div class="mission-vision-card">
+      <div class="icon">🎯</div>
+      <h2>Our Mission</h2>
+      <p>
+        At <strong>VS Tailors</strong>, our mission is to craft garments that 
+        combine timeless artistry with modern style. We bring comfort, elegance, 
+        and confidence into every piece while delivering personalized service.
+      </p>
+    </div>
+    <div class="mission-vision-card">
+      <div class="icon">👁️</div>
+      <h2>Our Vision</h2>
+      <p>
+        We aim to be India’s most trusted tailoring brand — known for precision, 
+        innovation, and customer-first service. Our vision is to redefine tailoring 
+        by blending tradition with modern trends.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Core Values Section -->
+<section class="core-values-modern">
+  <div class="container">
+    <h2>Our<span> Core Values</span></h2>
+    <p class="subtitle">The principles that shape every stitch at <strong>VS Tailors</strong></p>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="icon">🧵</div>
+        <h3>Precision Craftsmanship</h3>
+        <p>Every detail matters. We ensure each stitch reflects elegance and quality.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="icon">🤝</div>
+        <h3>Customer Satisfaction</h3>
+        <p>Your comfort and happiness are at the heart of every design we create.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="icon">🚪</div>
+        <h3>Free Home Service</h3>
+        <p>We bring the tailoring experience to your doorstep for ultimate convenience.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="icon">💼</div>
+        <h3>Professional Team</h3>
+        <p>Our experienced team ensures a seamless, high-quality tailoring journey.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="icon">🎯</div>
+        <h3>On-Time Delivery</h3>
+        <p>We value your time. Every order is delivered promptly without compromise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Meet Our Founders -->
+
+<section class="founders-section">
+  <h2 class="team-title">Meet<span> Our Founders</span></h2>
+  <p class="team-subtitle">The people behind VS Tailors, carrying forward 30+ years of excellence.</p>
+
+  <div class="team-container">
+    <!-- Founder 1 -->
+    <div class="team-card">
+      <div class="image-box bg-orange">
+        <img src="Images/VS Tailor Papa .jpg" alt="Founder 1">
+      </div>
+      <h3>Vikas Sonawane</h3>
+      <p class="role">Founder & CEO</p>
+    </div>
+
+    <!-- Founder 2 -->
+    <div class="team-card">
+      <div class="image-box bg-green">
+        <img src="Images/Akash Photo.png" alt="Founder 2">
+      </div>
+      <h3>Akash Sonawane</h3>
+      <p class="role">Head of Marketing</p>
+    </div>
+
+    <!-- Founder 3 -->
+    <div class="team-card">
+      <div class="image-box bg-pink">
+        <img src="Images/Adesh1 photo.png" alt="Founder 3">
+      </div>
+      <h3>Adesh Sonawane</h3>
+      <p class="role">Creative Director</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h2>📩 Stay Updated with Us!</h2>
+        <p>Subscribe to our newsletter for the latest updates, exclusive offers, and style inspiration. Also, join our WhatsApp Channel for instant alerts!</p>
+
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <div class="whatsapp-link">
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank">
+                <img src="Images/WhatsApp Icon.png" alt="WhatsApp"> Join WhatsApp Channel
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="custom-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="footer-brand">
+            <h2>VS Tailors</h2>
+            <p>31+ Years of Excellence in Custom Tailoring & Uniform Manufacturing.</p>
+            <p>Perfect Fit for Every Occasion!</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Business Hours -->
+         <div class="footer-hours">
+            <h3>Business Hours</h3>
+            <ul>
+                <li>🕒 Mon - Sun: 9:00 AM - 9:00 PM</li>
+                <li>📍 Address: Nashik, Maharashtra, India</li>
+                <li>📞 +91 9822771573</li>
+                <li>📧 vsuniformmanufacturer@gmail.com</li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Payment Methods -->
+        <div class="footer-payment">
+            <h3>We Accept</h3>
+            <div class="payment-icons">
+                <img src="Images/payment Gateway Icons.png" alt="Payment Methods">
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="https://share.google/jWaG2gvEhZIGiskQo" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://www.instagram.com/vs_tailors_?igsh=bHduNW1yYnZ1MzQx" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 VS Tailors. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader").style.display = "none";
+  });
+</script>
+
+<script src="SideBar.js"></script>
+<script src="subscribeSuccess.js"></script>
+<script src="ProfileIcon.js"></script>
+
+</body>
+</html>
+

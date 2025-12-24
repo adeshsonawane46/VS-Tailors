@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Tailors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="ProductsDetail.css">
+</head>
+<body>
+    <!-- header -->
+
+    <section id="header">
+        <a href="#"><img src="Images/VS Tailor Website Logo Fix.png" width="160" class="logo" alt=""></a>
+        
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="login-btn"><a href="Login.html">Login</a></li>
+
+                <!-- Profile Dropdown -->
+                <li id="profile-btn" style="display: none; position: relative;">
+                    <a href="javascript:void(0);">
+                        <img src="Images/Profile-icon.png" alt="Profile" width="23" style="border-radius:50%;">
+                    </a>
+                    <ul id="profile-dropdown" style="display:none; position: absolute; top: 40px; right: 0; background: #fff; list-style:none; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                        <li><a href="javascript:void(0);" onclick="logoutUser()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <span id="hamburger">&#9776;</span>
+    </section>
+
+    <!-- Sidebar for mobile -->
+    <div id="sidebar">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="Products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="Login.html">Login</a>
+    </div>
+
+    <!-- Loader-->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+
+    <!-- Hero Section -->
+
+    <section id="hero">
+        <a href="#"><img src="Images/VS Tailor Website Logo Fix.png" class="herologo" alt=""></a>
+
+        <img src="Images/Mobile hero1.jpg" class="hero-img hero-mobile" alt="VS Tailors Mobile">
+        <h4>Your Vision, Our Precision</h4>
+        <p id="first">Tailoring Excellence for Men’s Wear & Uniforms.</p>
+        <p id="second">5-Star Rated on Google!</p>
+        
+        <div class="both-buttons">
+            <div>
+                <a href="contact.html">
+                    <button class="book-home-service">Book Free Home Service</button>
+                </a>
+            </div>
+            
+            <div>
+                <a href="about.html">
+                    <button class="book-home-service">About Us</button>
+                </a>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Collections -->
+
+    <div class="container">
+        <!-- Men Collections -->
+        <div class="collection men-collections">
+          <h2>CUSTOM TAILORING FOR MEN</h2>
+          <img src="Images/Mens Shirt.png" class="mens-img" width="380" alt="VS Tailors">
+          <a href="CustomAll.html" class="explore-btn">
+            <span>Explore All</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      
+        <!-- Professional Collections -->
+        <div class="collection Professional-Uniforms">
+          <h2>BULK STITCHING ORDERS</h2>
+          <img src="Images/Professional collection.png" width="380" alt="VS Tailors">
+          <a href="BulkOrder.html" class="explore-btn">
+            <span>Explore All</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      
+        <!-- Home Service Collections -->
+        <div class="collection BOOK-HOME-SERVICE">
+          <h2>BOOK FREE HOME SERVICE</h2>
+          <img src="Images/Book Free Home Service.png" width="380" alt="VS Tailors">
+          <a href="contact.html#book-appointment2" class="explore-btn">
+            <span>Explore All</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      
+
+<section class="about">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="Images/About us img.jpg" alt="VS Tailors Shop">
+        </div>
+        <div class="about-content">
+            <h2>About <span>VS Tailors</span></h2>
+            <p>Welcome to VS Tailors, your trusted name in custom tailoring and professional uniform manufacturing for over 31+ years! Established in 1993, we have been delivering exceptional craftsmanship, perfect fits, and high-quality uniforms to individuals and businesses alike.</p>
+            <p>With a 5-star rating on Google, our expertise extends beyond personal tailoring to large-scale uniform production for hospitals, schools, corporate offices, showrooms, and more. From premium suits, shirts, pants, coats, blazers, and jackets to industrial and corporate uniforms, we ensure precision in every stitch.</p>
+            <a href="about.html" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="featured-products">
+    <div class="section-title">
+        <h2>Our <span>Featured Products</span></h2>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-box">
+            <img src="Images/Formal-Shirt.png" alt="Product 1">
+            <h3>Formal Dress</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=1" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-box">
+            <img src="Images/coat pant.png" alt="Product 2">
+            <h3>Blazer</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=2" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-box">
+            <img src="Images/Kurta.png" alt="Product 3">
+            <h3>Kurta</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=3" class="get-tailored">Get Tailored</a>
+        </div>
+    </div>
+
+    <div class="bulk-grid">
+        <!-- Product 18 -->
+        <div class="productwide-box">
+            <img src="Images/Hospital Uniforms.png" alt="Hospital Uniforms">
+            <h3>Hospital Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=18" class="get-tailored">Get Tailored</a>
+        </div>
+
+        <!-- Product 19 -->
+        <div class="productwide-box">
+            <img src="Images/Corporate Uniforms bulk.png" alt="Corporate Uniforms">
+            <h3>Corporate Uniforms</h3>
+            <div class="stars">★★★★★</div>
+            <a href="ProductsDetail.html?id=19" class="get-tailored">Get Tailored</a>
+        </div>
+    </div>
+
+    <!-- See All Button -->
+    <div class="see-all-container">
+        <a href="Products.html" class="see-all">See All <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- Our Process Section -->
+<section class="our-process">
+    <h2>How <span>Our Process</span> Works</h2>
+    <div class="process-container">
+
+        <!-- Step 1 -->
+        <div class="process-step">
+            <img src="Images/Process BOOK-Appointment.png" alt="Book Appointment">
+            <div class="step-number">1</div>
+            <h3>Book an Appointment</h3>
+            <p>Schedule a free home service via call or website. Our tailor visits your location at your convenience, ensuring a hassle-free and personalized experience.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step">
+            <img src="Images/Process Measurement.png" alt="Pickup & Measurement">
+            <div class="step-number">2</div>
+            <h3>Pickup & Measurement</h3>
+            <p>Our tailor visits your home to take precise measurements or uses a sample outfit for reference, ensuring a comfortable and perfectly fitted outfit.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step">
+            <img src="Images/Process Stitching.png" alt="Stitching">
+            <div class="step-number">3</div>
+            <h3>Stitching & Customization</h3>
+            <p>After finalizing the design, our expert tailors begin the precise stitching process, ensuring high-quality craftsmanship, perfect fitting, and attention to every detail.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step">
+            <img src="Images/Process Delivery.png" alt="Trial & Delivery">
+            <div class="step-number">4</div>
+            <h3>Trial & Delivery</h3>
+            <p>Your outfit is ready! Our expert tailor delivers it to your doorstep, ensuring a perfect fit with a trial session. Quality-checked, packed, and delivered within 7 days!</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="why-choose-us">
+    <h2>Why <span>Choose Us ?</span></h2>
+    <div class="achievements-container">
+
+        <!-- Box 1: Happy Customers -->
+        <div class="achievement-box">
+            <div class="circle">
+                <img src="Images/Happy Customers.png" alt="Happy Customers">
+            </div>
+            <h3>3,00,000+</h3>
+            <p>Happy Customers</p>
+        </div>
+
+        <!-- Box 2: Experience -->
+        <div class="achievement-box">
+            <div class="circle">
+                <img id="exper" src="Images/31+ years.png" alt="Experience">
+            </div>
+            <h3>31+ Years</h3>
+            <p>Industry Experience</p>
+        </div>
+
+        <!-- Box 3: Google Rating -->
+        <div class="achievement-box">
+            <div class="circle">
+                <img src="Images/Google Rating.png" alt="Google Rating">
+            </div>
+            <h3 class="stars">★★★★★</h3>
+            <p>Google Rating</p>
+        </div>
+
+        <!-- Box 4: Industries Served -->
+        <div class="achievement-box">
+            <div class="circle">
+                <img src="Images/Business Served.png" alt="Industries Served">
+            </div>
+            <h3>500+</h3>
+            <p>Businesses & Industries Served</p>
+        </div>
+
+        <!-- Box 5: Free Home Service -->
+        <div class="achievement-box">
+            <div class="circle">
+                <img src="Images/Free Home-Serv.png" alt="Home Service">
+            </div>
+            <h3>Free</h3>
+            <p>Home Service in City</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Frequently Asked Questions -->
+
+<section class="faq-section">
+    <h2>Frequently Asked <span>Questions</span></h2>
+
+    <div class="faq-container">
+        
+        <!-- Left Column -->
+        <div class="faq-column">
+            <div class="faq-item">
+                <div class="question">
+                    <h3>Do you offer home service ?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>Yes! We provide free home service within the city. Our tailor will visit your location for measurements.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    <h3>How long does stitching take?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>We take around 7 working days for normal stitching. Express service is available for urgent orders.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    <h3>Can I provide my own fabric?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>Absolutely! You can provide your own fabric, and we will stitch it as per your chosen design.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    <h3>What payment methods do you accept?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>We accept cash, UPI, bank transfers, and card payments.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="faq-column">
+            <div class="faq-item">
+                <div class="question">
+                    <h3>Do you offer corporate bulk orders?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>Yes, we provide bulk stitching services for corporate and industrial uniforms.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    <h3>Is there a trial before final delivery?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>Yes, we offer a fitting trial to ensure perfect size before final delivery.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    <h3>Do you make custom designs?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>Yes, our designers help create custom styles based on your preferences.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    <h3>What if I need alterations?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="answer">
+                    <p>We offer free alterations within 2 years of delivery.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h2>📩 Stay Updated with Us!</h2>
+        <p>Subscribe to our newsletter for the latest updates, exclusive offers, and style inspiration. Also, join our WhatsApp Channel for instant alerts!</p>
+
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <div class="whatsapp-link">
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank">
+                <img src="Images/WhatsApp Icon.png" alt="WhatsApp"> Join WhatsApp Channel
+            </a>
+        </div>
+
+        <div id="success-message" style="display:none; color: green; font-size: 1.2rem; margin-top: 10px;">
+            Thank you for subscribing! You'll receive the latest updates soon.
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="custom-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="footer-brand">
+            <h2>VS Tailors</h2>
+            <p>31+ Years of Excellence in Custom Tailoring & Uniform Manufacturing.</p>
+            <p>Perfect Fit for Every Occasion!</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Business Hours -->
+        <div class="footer-hours">
+            <h3>Business Hours</h3>
+            <ul>
+                <li>🕒 Mon - Sun: 9:00 AM - 9:00 PM</li>
+                <li>📍 Address: Nashik, Maharashtra, India</li>
+                <li>📞 +91 9822771573</li>
+                <li>📧 vsuniformmanufacturer@gmail.com</li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Payment Methods -->
+        <div class="footer-payment">
+            <h3>We Accept</h3>
+            <div class="payment-icons">
+                <img src="Images/payment Gateway Icons.png" alt="Payment Methods">
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="https://share.google/jWaG2gvEhZIGiskQo" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://www.instagram.com/vs_tailors_?igsh=bHduNW1yYnZ1MzQx" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://whatsapp.com/channel/0029Vb5Uyq060eBbN0qagp06" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 VS Tailors. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader").style.display = "none";
+  });
+</script>
+
+<script src="SideBar.js"></script>
+<script src="Faq.js"></script>
+<script src="subscribeSuccess.js"></script>
+<script src="ProfileIcon.js"></script>
+
+
+</body> 
+</html> 

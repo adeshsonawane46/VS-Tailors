@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VS Tailors – Login & Register</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Back Button -->
+    <div class="back-btn" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="tabs">
+      <div id="login-tab" class="active">Login</div>
+      <div id="signup-tab">Signup</div>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" class="active">
+      <h2 class="heading">Welcome Back 👋</h2>
+      <p class="sub-heading">Login to continue your tailoring journey</p>
+      <input type="email" id="login-email" placeholder="Email" required>
+      <span class="error" id="login-email-error">Please enter your email</span>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <span class="error" id="login-password-error">Please enter your password</span>
+      <button class="btn" type="submit">Login</button>
+
+      <div id="login-msg" class="msg"></div>
+    </form>
+
+    <!-- Signup Form -->
+    <form id="signup-form">
+      <h2 class="heading">Create Account ✨</h2>
+      <p class="sub-heading">Join VS Tailors and get started today</p>
+      <input type="text" id="signup-name" placeholder="Full Name" required>
+      <span class="error" id="signup-name-error">Please enter your name</span>
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <span class="error" id="signup-email-error">Please enter a valid email</span>
+      <input type="password" id="signup-password" placeholder="Password (min 6)" minlength="6" required>
+      <span class="error" id="signup-password-error">Password must be at least 6 characters</span>
+      <button class="btn" type="submit">Signup</button>
+
+      <div id="signup-msg" class="msg"></div>
+    </form>
+  </div>
+
+<script src="login.js"></script>
+
+</body>
+</html>
