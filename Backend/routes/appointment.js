@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
       notes,
     } = req.body;
 
-    // 1️⃣ Save appointment (MAIN)
+    // 1️⃣ Save appointment
     const appointment = new Appointment({
       name,
       email,
@@ -48,20 +48,41 @@ router.post("/", async (req, res) => {
 
     await appointment.save();
 
-    // 2️⃣ Respond FIRST
+    // 2️⃣ Respond immediately
     res.status(200).json({
       success: true,
       message: "Appointment booked successfully!",
     });
 
-    // 3️⃣ Send email in background (NO await)
+    // 3️⃣ Send emails in background (NON-BLOCKING)
     if (transporter) {
-    transporter
-    .sendMail({
-      from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
-      to: email,
-      subject: "🎉 Appointment Confirmed - VS Tailors",
-      html: `
+      // ✅ ADMIN EMAIL
+      transporter
+        .sendMail({
+          from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
+          to: process.env.SENDER_EMAIL,
+          subject: "📩 New Appointment Booked",
+          html: `
+            <h3>New Appointment Details</h3>
+            <p><b>Name:</b> ${name}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Contact:</b> ${contact}</p>
+            <p><b>Service:</b> ${service}</p>
+            <p><b>Quantity:</b> ${quantity}</p>
+            <p><b>Notes:</b> ${notes || "None"}</p>
+          `,
+        })
+        .catch(err =>
+          console.error("❌ Admin email failed:", err.message)
+        );
+
+      // ✅ USER EMAIL
+      transporter
+        .sendMail({
+          from: `VS Tailors <${process.env.SENDER_EMAIL}>`,
+          to: email,
+          subject: "🎉 Appointment Confirmed - VS Tailors",
+          html: `
 <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
   <div style="text-align: center; margin-bottom: 20px;">
     <img src="https://raw.githubusercontent.com/adeshsonawane46/VS-Tailors/main/frontend/Images/VS%20Brand%20logo%20new.png" alt="VS Tailors" width="150" style="display:block; margin:auto;">
@@ -103,19 +124,19 @@ router.post("/", async (req, res) => {
     VS Tailors | Nashik, Maharashtra, India | +91 9822771573
   </p>
 </div>
-        `,
-      })
-      .catch((err) => {
-        console.error("❌ Email send failed:", err.message);
-      });
+          `,
+        })
+        .catch(err =>
+          console.error("❌ User email failed:", err.message)
+        );
     }
   } catch (err) {
-    console.error("❌ Appointment save failed:", err);
-    res.status(500).json({
-      success: false,
-      message: "Failed to book appointment",
-    });
-  }
+  console.error("❌ Appointment error:", err);
+  res.status(500).json({
+    success: false,
+    message: "Server error while booking appointment",
+  });
+}
 });
 
 module.exports = router;
