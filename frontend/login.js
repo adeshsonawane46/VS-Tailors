@@ -1,3 +1,8 @@
+const API_BASE =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000" : "https://vs-tailors.onrender.com";
+
+
 // ===== BACK BUTTON =====
 function goBack() {
   window.location.href = "index.html"; // change to your actual home page
@@ -45,7 +50,7 @@ signupForm.addEventListener("submit", async function (e) {
   const password = document.getElementById("signup-password").value;
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/register", {
+    const res = await fetch(`${API_BASE}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password })
@@ -77,7 +82,7 @@ loginForm.addEventListener("submit", async function (e) {
   const password = document.getElementById("login-password").value;
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch(`${API_BASE}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
