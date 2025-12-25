@@ -38,13 +38,24 @@
 </section>
 
     <!-- Sidebar for mobile -->
+    <!-- Mobile Sidebar -->
     <div id="sidebar">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
+
         <a href="index.html">Home</a>
         <a href="Products.html">Products</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="Login.html">Login</a>
+
+        <!-- Login (mobile) -->
+        <a id="sidebar-login-btn" href="Login.html">Login</a>
+
+        <!-- Profile + Logout (mobile) -->
+        <a id="sidebar-profile-btn" href="javascript:void(0); style="display:none;">
+            <img src="Images/Profile-icon.png" alt="Profile">
+            <span>Logout</span>
+        </a>
+
     </div>
 
     <!-- Loader-->
@@ -289,6 +300,7 @@
     </script>
 
     <script src="SideBar.js"></script>
+    <script src="siderBarProfile.js"></script>
     <script src="subscribeSuccess.js"></script>
     <script src="ProfileIcon.js"></script>
 </body>

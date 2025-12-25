@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Open sidebar
     hamburger.addEventListener("click", function () {
         sidebar.style.left = "0px";
+        updateSidebarAuth();
     });
 
     // Close sidebar
