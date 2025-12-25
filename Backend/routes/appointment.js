@@ -23,6 +23,17 @@ if (
   });
 }
 
+if (transporter) {
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("❌ SMTP VERIFY FAILED:", error.message);
+    } else {
+      console.log("✅ SMTP SERVER READY TO SEND EMAILS");
+    }
+  });
+}
+
+
 router.post("/", async (req, res) => {
   try {
     const {
